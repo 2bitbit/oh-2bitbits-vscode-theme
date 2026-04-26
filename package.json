@@ -1,0 +1,102 @@
+{
+  "name": "oh-2bitbits-vscode-theme",
+  "displayName": "Oh! 2bitbit's VSCode Theme",
+  "version": "1.0.1",
+  "publisher": "2bitbit",
+  "author": "2bitbit",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/2bitbit/oh-2bitbits-vscode-theme.git"
+  },
+  "homepage": "https://github.com/2bitbit/oh-2bitbits-vscode-theme#readme",
+  "bugs": {
+    "url": "https://github.com/2bitbit/oh-2bitbits-vscode-theme/issues"
+  },
+  "keywords": [
+    "one-dark",
+    "one-dark-vivid",
+    "one-dark-italic",
+    "vscode-theme",
+    "vscode"
+  ],
+  "scripts": {
+    "build": "esbuild ./src/extension.ts --bundle --outfile=dist/main.js --external:vscode --format=cjs",
+    "format": "prettier --write .",
+    "lint": "eslint .",
+    "theme": "ts-node ./generator/index.ts",
+    "theme:watch": "nodemon ./generator/index.ts",
+    "ts": "tsc",
+    "watch": "npm run build -- --sourcemap --watch",
+    "vscode:prepublish": "npm run theme && npm run build -- --minify"
+  },
+  "engines": {
+    "vscode": "^1.63.1"
+  },
+  "categories": [
+    "Themes"
+  ],
+  "icon": "static/icon.png",
+  "galleryBanner": {
+    "color": "#2d323b",
+    "theme": "dark"
+  },
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "extensionKind": [
+    "ui",
+    "workspace"
+  ],
+  "main": "./dist/main.js",
+  "browser": "./dist/main.js",
+  "contributes": {
+    "themes": [
+      {
+        "label": "2bitbit One Dark Vivid",
+        "uiTheme": "vs-dark",
+        "path": "./themes/one-dark-vivid.json"
+      }
+    ],
+    "configuration": {
+      "title": "One Dark",
+      "properties": {
+        "oneDark.bold": {
+          "type": "boolean",
+          "default": false,
+          "markdownDescription": "Uses bold font for certain language keywords."
+        },
+        "oneDark.italic": {
+          "type": "boolean",
+          "default": true,
+          "description": "Uses italic font for language keywords and comments."
+        }
+      }
+    }
+  },
+  "capabilities": {
+    "untrustedWorkspaces": {
+      "supported": true
+    },
+    "virtualWorkspaces": true
+  },
+  "devDependencies": {
+    "@babel/core": "^7.16.7",
+    "@babel/eslint-parser": "^7.16.5",
+    "@mskelton/eslint-config": "^7.1.0",
+    "@types/node": "^17.0.8",
+    "@types/vscode": "^1.63.1",
+    "@typescript-eslint/eslint-plugin": "^5.9.1",
+    "@typescript-eslint/parser": "^5.9.1",
+    "esbuild": "^0.14.11",
+    "eslint": "^8.6.0",
+    "eslint-plugin-sort": "^2.3.1",
+    "nodemon": "^2.0.15",
+    "prettier": "^2.5.1",
+    "semantic-release": "^18.0.1",
+    "semantic-release-vsce": "^3.5.0",
+    "ts-node": "^10.4.0",
+    "typescript": "^4.5.4",
+    "vsce": "^2.6.3"
+  }
+}
