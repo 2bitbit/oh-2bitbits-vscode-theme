@@ -6,7 +6,7 @@ const colors = {
 }
 
 const theme = {
-  chalky: "#e5c07b",
+  chalky: "#e5ba68",
   coral: "#e06c75",
   cyan: "#56b6c2",
   error: "#f44747",
@@ -15,6 +15,17 @@ const theme = {
   sage: "#98c379",
   violet: "#c678dd",
 }
+/* 可以取消注释下面这一行，去悬浮窗或者插件文本页面什么的，看看热更新有没有生效 */
+// const theme = {
+//   malibu: "#fd4305",
+//   chalky: "#fd4305",
+//   coral: "#fd4305",
+//   cyan: "#fd4305",
+//   error: "#fd4305",
+//   ivory: "#fd4305",
+//   sage: "#fd4305",
+//   violet: "#fd4305",
+// }
 
 export const editorTokens = {
   "activityBar.activeBorder": colors.activeBorder,
@@ -125,7 +136,7 @@ export const editorTokens = {
   "textBlockQuote.background": colors.darkBackground,
   "textBlockQuote.border": colors.activeBorder,
   "textCodeBlock.background": colors.darkBackground,
-  "textPreformat.background": "#d7dae0",
+  "textPreformat.background": "#e2e2e232",
   "textPreformat.foreground": theme.chalky,
   "textLink.activeForeground": theme.malibu,
   "textLink.foreground": theme.malibu,
