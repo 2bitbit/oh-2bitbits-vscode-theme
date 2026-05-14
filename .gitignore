@@ -3,3 +3,5 @@ dist/
 themes/*
 !themes/.gitkeep
 *.vsix
+target/
+cargo.lock
