@@ -7,6 +7,7 @@ import {
   alwaysBoldTokens,
   alwaysItalicTokens,
   getStandardTokens,
+  getTokenColors,
 } from "./theme/theme"
 import { writeFile } from "./utils"
 
@@ -17,6 +18,7 @@ export function generateTheme() {
     getStandardTokens(colors),
     alwaysItalicTokens,
     alwaysBoldTokens,
+    getTokenColors(colors, true),
   ].reduce((aggregate, curr) => aggregate.concat(...curr), [])
 
   return {

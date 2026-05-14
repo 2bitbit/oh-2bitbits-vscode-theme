@@ -21,14 +21,12 @@
     "vscode"
   ],
   "scripts": {
-    "build": "esbuild ./src/extension.ts --bundle --outfile=dist/main.js --external:vscode --format=cjs",
     "format": "prettier --write .",
     "lint": "eslint .",
     "theme": "ts-node ./generator/index.ts",
     "theme:watch": "nodemon ./generator/index.ts",
     "ts": "tsc",
-    "watch": "npm run build -- --sourcemap --watch",
-    "vscode:prepublish": "npm run theme && npm run build -- --minify"
+    "vscode:prepublish": "npm run theme"
   },
   "engines": {
     "vscode": "^1.63.1"
@@ -41,15 +39,6 @@
     "color": "#2d323b",
     "theme": "dark"
   },
-  "activationEvents": [
-    "onStartupFinished"
-  ],
-  "extensionKind": [
-    "ui",
-    "workspace"
-  ],
-  "main": "./dist/main.js",
-  "browser": "./dist/main.js",
   "contributes": {
     "themes": [
       {
@@ -57,22 +46,7 @@
         "uiTheme": "vs-dark",
         "path": "./themes/one-dark-vivid.json"
       }
-    ],
-    "configuration": {
-      "title": "One Dark",
-      "properties": {
-        "oneDark.bold": {
-          "type": "boolean",
-          "default": false,
-          "markdownDescription": "Uses bold font for certain language keywords."
-        },
-        "oneDark.italic": {
-          "type": "boolean",
-          "default": true,
-          "description": "Uses italic font for language keywords and comments."
-        }
-      }
-    }
+    ]
   },
   "capabilities": {
     "untrustedWorkspaces": {

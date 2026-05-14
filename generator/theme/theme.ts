@@ -2,7 +2,7 @@ import { Colors, TokenGroup } from "../models"
 
 // 在 generator/theme/theme.ts 的 getTokenColors 函数返回的数组中添加：
 
-export function getTokenColors(color: Colors, isVivid: boolean) {
+export function getTokenColors(color: Colors, isVivid: boolean): TokenGroup[] {
     return [
         // 1. 你的自定义斜体规则 (One Dark italic)
         {
