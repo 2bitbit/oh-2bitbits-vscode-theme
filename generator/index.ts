@@ -1,6 +1,7 @@
+import { writeFileSync } from "fs"
 import { join } from "path"
 
-import { getColors, standardColors, vividColors } from "./theme/colors"
+import { standardColors, vividColors } from "./theme/colors"
 import { editorTokens } from "./theme/editor"
 import { getSemanticTokenColors } from "./theme/semantic-colors"
 import {
@@ -9,7 +10,6 @@ import {
   getStandardTokens,
   getTokenColors,
 } from "./theme/theme"
-import { writeFile } from "./utils"
 
 export function generateTheme() {
   const colors = vividColors
@@ -22,7 +22,7 @@ export function generateTheme() {
   ].reduce((aggregate, curr) => aggregate.concat(...curr), [])
 
   return {
-    colors: { ...editorTokens, ...getColors(colors, true) },
+    colors: editorTokens,
     name: "2bitbit One Dark Vivid",
     semanticHighlighting: true,
     semanticTokenColors: getSemanticTokenColors(colors),
@@ -31,7 +31,7 @@ export function generateTheme() {
   }
 }
 
-writeFile(
+writeFileSync(
   join(__dirname, "..", "themes", "one-dark-vivid.json"),
-  generateTheme()
+  JSON.stringify(generateTheme())
 )

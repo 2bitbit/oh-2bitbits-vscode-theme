@@ -1,6 +1,25 @@
-import { Colors, TokenGroup } from "../models"
+import { Colors } from "./colors"
 
-// 在 generator/theme/theme.ts 的 getTokenColors 函数返回的数组中添加：
+export type FontStyle =
+  | "normal"
+  | "italic"
+  | "bold"
+  | "underline"
+  | "bold underline"
+  | "bold italic"
+  | "italic underline"
+  | ""
+
+export interface TokenSettings {
+  fontStyle?: FontStyle
+  foreground?: string
+}
+
+export interface TokenGroup {
+  name?: string
+  scope?: string[]
+  settings?: TokenSettings
+}
 
 export function getTokenColors(color: Colors, isVivid: boolean): TokenGroup[] {
     return [

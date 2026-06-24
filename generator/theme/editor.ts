@@ -42,15 +42,20 @@ export const editorTokens = {
   "dropdown.background": colors.darkBackground,
   "dropdown.border": colors.darkBackground,
   "editor.background": colors.background,
-  "editor.findMatchBackground": "#42557b",
-  "editor.findMatchBorder": "#457dff",
-  "editor.findMatchHighlightBackground": "#528bff3d",
+  // 搜索结果背景颜色
+  "editor.findMatchBackground": "#6e5c0e78",
+  // 搜索结果边框颜色
+  "editor.findMatchBorder": "#00ff0060",
+  // 搜索结果背景颜色
+  "editor.findMatchHighlightBackground": "#6e5c0e78",
   "editor.foreground": theme.ivory,
   "editor.lineHighlightBackground": "#2c313c",
-  "editor.selectionBackground": "#67769660",
+  // 鼠标拖选背景颜色
+  "editor.selectionBackground": "#00660088",
   "editor.selectionHighlightBackground": "#ffffff10",
   "editor.selectionHighlightBorder": "#ddd",
-  "editor.wordHighlightBackground": "#484e5b",
+  // 光标当前词的背景透明
+  "editor.wordHighlightBackground": "#00000000",
   "editor.wordHighlightBorder": "#c6c7c7ff",
   "editor.wordHighlightStrongBackground": "#abb2bf26",
   "editor.wordHighlightStrongBorder": "#7f848e",
@@ -147,4 +152,8 @@ export const editorTokens = {
   "titleBar.border": colors.border,
   "titleBar.inactiveBackground": colors.darkBackground,
   "titleBar.inactiveForeground": "#6b717d",
+  // 搜索结果边框颜色
+  "terminal.findMatchBorder": "#00ff0060",
+  // 搜索结果背景颜色
+  "terminal.findMatchHighlightBackground": "#6e5c0e78",
 }

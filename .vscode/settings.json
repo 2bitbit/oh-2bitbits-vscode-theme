@@ -1,6 +1,13 @@
 {
     "files.exclude": {
         "**/.git": true,
+        "node_modules":true,
+        "package-lock.json":true,
+        "LICENSE":true,
+        "nodemon.json":true,
+        "static":true,
+        "README.md":true,
+        "themes/":true
     },
     "hide-files.files": []
 }

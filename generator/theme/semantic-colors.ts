@@ -1,4 +1,4 @@
-import { Colors } from "../models"
+import { Colors } from "./colors"
 
 export function getSemanticTokenColors(colors: Colors) {
   return {
