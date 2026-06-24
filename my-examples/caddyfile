@@ -1,0 +1,96 @@
+{
+	on_demand_tls {
+		ask http://127.0.0.1:1111/api/domains/check
+	}
+}
+
+# 0.1 错误拦截模板：容器停止服务时自动返回友好 503 维护页，保障 API 级稳定与 SEO 友好
+(handle_proxy_errors) {
+	handle_errors {
+		# API 路由拦截：返回标准 JSON 格式的 503 错误，带有中英双语提示
+		@api {
+			expression {err.status_code} == 502 || {err.status_code} == 504
+			path /api/*
+		}
+		handle @api {
+			header Content-Type "application/json; charset=utf-8"
+			respond `{"error":"SERVICE_MAINTENANCE","message":"服务临时维护中，请稍后再试 / System is undergoing maintenance, please try again later"}` 503
+		}
+
+		# 页面路由拦截：返回友好 HTML 格式的中英双语 503 页面
+		handle @bad_gateway {
+			header Content-Type "text/html; charset=utf-8"
+			respond `<!DOCTYPE html>
+<html>
+<head>
+    <title>系统维护中 / System Under Maintenance - kbkb</title>
+    <meta charset="utf-8">
+    <style>
+        .en { 
+            font-size: 12px; 
+            font-weight: 500;
+            color: #4b5563; 
+            border-top: 1.5px dashed #e5e7eb; 
+            padding-top: 15px; 
+            margin-top: 15px; 
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h1>🛠️ 系统正在维护中 / Under Maintenance</h1>
+        <p>为了给您提供更好的服务，我们正在对系统进行升级维护，预计需要几分钟。请您稍后刷新浏览器重试。</p>
+        <p class="en">To provide you with better services, we are upgrading and maintaining the system. It is expected to take a few minutes. Please refresh your browser and try again later.</p>
+    </div>
+</body>
+</html>` 503
+		}
+	}
+}
+
+# 0.3 静态总站托管：xyz 商业宇宙官方落地页 (xyz.one)
+xyz.one, www.xyz.one {
+	# 规范化域名：将 www.xyz.one 永久重定向到根域名 xyz.one，保障 SEO 权重集中
+	@www host www.xyz.one
+	handle @www {
+		redir https://xyz.one{uri} permanent
+	}
+
+	reverse_proxy /api/payments/creem-webhook 127.0.0.1:4444
+
+	log {
+		output file /data/logs/caddy_xyz_access.log {
+			roll_size 10mb
+			roll_keep 3
+		}
+	}
+}
+
+abc.xyz.one {
+	# 为所有的页面 HTML 入口（排除 /api 与 /assets 静态哈希资源）强行加上 no-cache 响应头，杜绝本地浏览器死锁
+	@html_pages {
+		not path /api/* /assets/* /favicon.ico
+	}
+	header @html_pages Cache-Control "no-cache, no-store, must-revalidate"
+
+	reverse_proxy 127.0.0.1:8081
+	import handle_proxy_errors
+
+	log {
+		output file /data/logs/caddy_stable_access.log {
+			roll_size 10mb
+			roll_keep 3
+		}
+	}
+}
+
+# 4. Beta 沙箱轨 Creem Webhook 接收网关
+beta.xyz.one {
+	# 将 Beta 沙箱轨下的 Creem Webhook 推送安全反代到计费中台
+	reverse_proxy /api/payments/creem-webhook 127.0.0.1:1234
+
+	# 其他所有请求直接拦截返回 404
+	handle {
+		respond "Not Found" 404
+	}
+}

@@ -1,0 +1,40 @@
+sequenceDiagram
+    autonumber
+    actor User as 用户
+    participant Agent as Agent (智能体)
+    participant Origin as B/<game>/<mod>/origin/
+    participant Trans as B/<game>/<mod>/translated/
+    participant Git as Git 系统
+
+    %% 步骤 1：拉取目录
+    rect
+        Note over User, Origin: 1. 拉取目录阶段
+        alt 触发方式 A：Agent 自动执行
+            Agent->>Origin: 拉取目录到指定路径
+        else 触发方式 B：用户手动执行
+            User->>Origin: 手动拉取目录到指定路径
+        end
+    end
+
+    %% 步骤 2：全量阅读与处理
+    rect
+        Note over Agent, Trans: 2. 全量阅读与翻译/复制阶段
+        Agent->>Origin: 发起全量逐文件读取
+        本阶段 --> Agent: 循环遍历整个项目文件
+        loop 每个项目文件
+            Origin-->>Agent: 获取文件内容/资产
+            alt 文件类型为：文本文件
+                Agent->>Agent: 翻译文本内容
+                Agent->>Trans: 输出翻译结果
+            else 文件类型为：图片 / 音频 / 视频 等媒体资产
+                Agent->>Trans: 直接复制粘贴原文件
+            end
+        end
+    end
+
+    %% 步骤 3：Git 归档
+    rect
+        Note over Agent, Git: 3. Git 归档阶段
+        Agent->>Git: 执行 commit (处理说明并标明 version)
+        Agent->>Git: 执行 git archive (生成归档文件)
+    end

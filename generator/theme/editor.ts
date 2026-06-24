@@ -138,7 +138,7 @@ export const editorTokens = {
   "textBlockQuote.background": colors.darkBackground,
   "textBlockQuote.border": colors.activeBorder,
   "textCodeBlock.background": colors.darkBackground,
-  "textPreformat.background": "#e2e2e232",
+  "textPreformat.background": "#ffffff1a",
   "textPreformat.foreground": theme.chalky,
   "textLink.activeForeground": theme.malibu,
   "textLink.foreground": theme.malibu,
