@@ -1,5 +1,0 @@
-{
-  "watch": ["generator"],
-  "ext": "ts",
-  "exec": "npx ts-node"
-}

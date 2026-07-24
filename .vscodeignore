@@ -6,10 +6,11 @@ node_modules/
 dist/**/*.map
 src/
 themes/.gitkeep
-.eslintignore
 .gitignore
-.prettierignore
 .releaserc.json
-nodemon.json
+bun.lock
+bun.lockb
+biome.json
 tsconfig.base.json
 tsconfig.json
+

@@ -1,18 +1,24 @@
 {
-  // See https://go.microsoft.com/fwlink/?LinkId=733558
-  // for the documentation about the tasks.json format
-  "version": "2.0.0",
-  "tasks": [
-    {
-      "label": "npm: theme:watch",
-      "type": "npm",
-      "script": "theme:watch",
-      "problemMatcher": [],
-      "isBackground": true,
-      "group": {
-        "kind": "build",
-        "isDefault": true
-      }
-    }
-  ]
+	// See https://go.microsoft.com/fwlink/?LinkId=733558
+	// for the documentation about the tasks.json format
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "bun: theme",
+			"type": "shell",
+			"command": "bun run theme",
+			"problemMatcher": [],
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			}
+		},
+		{
+			"label": "bun: theme:watch",
+			"type": "shell",
+			"command": "bun run theme:watch",
+			"problemMatcher": [],
+			"isBackground": true
+		}
+	]
 }

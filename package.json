@@ -1,76 +1,68 @@
 {
-  "name": "oh-2bitbits-vscode-theme",
-  "displayName": "Oh! 2bitbit's VSCode Theme",
-  "version": "1.1.4",
-  "publisher": "2bitbit",
-  "author": "2bitbit",
-  "license": "ISC",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/2bitbit/oh-2bitbits-vscode-theme.git"
-  },
-  "homepage": "https://github.com/2bitbit/oh-2bitbits-vscode-theme#readme",
-  "bugs": {
-    "url": "https://github.com/2bitbit/oh-2bitbits-vscode-theme/issues"
-  },
-  "keywords": [
-    "one-dark",
-    "one-dark-vivid",
-    "one-dark-italic",
-    "vscode-theme",
-    "vscode"
-  ],
-  "scripts": {
-    "format": "prettier --write .",
-    "lint": "eslint .",
-    "theme": "ts-node ./generator/index.ts",
-    "theme:watch": "nodemon ./generator/index.ts",
-    "ts": "tsc",
-    "vscode:prepublish": "npm run theme"
-  },
-  "engines": {
-    "vscode": "^1.63.1"
-  },
-  "categories": [
-    "Themes"
-  ],
-  "icon": "static/icon.png",
-  "galleryBanner": {
-    "color": "#2d323b",
-    "theme": "dark"
-  },
-  "contributes": {
-    "themes": [
-      {
-        "label": "2bitbit One Dark Vivid",
-        "uiTheme": "vs-dark",
-        "path": "./themes/one-dark-vivid.json"
-      }
-    ]
-  },
-  "capabilities": {
-    "untrustedWorkspaces": {
-      "supported": true
-    },
-    "virtualWorkspaces": true
-  },
-  "devDependencies": {
-    "@babel/core": "^7.16.7",
-    "@babel/eslint-parser": "^7.16.5",
-    "@mskelton/eslint-config": "^7.1.0",
-    "@types/node": "^17.0.8",
-    "@types/vscode": "^1.63.1",
-    "@typescript-eslint/eslint-plugin": "^5.9.1",
-    "@typescript-eslint/parser": "^5.9.1",
-    "esbuild": "^0.14.11",
-    "eslint": "^8.6.0",
-    "eslint-plugin-sort": "^2.3.1",
-    "nodemon": "^2.0.15",
-    "prettier": "^2.5.1",
-    "semantic-release": "^18.0.1",
-    "semantic-release-vsce": "^3.5.0",
-    "ts-node": "^10.4.0",
-    "typescript": "^4.5.4",
-    "vsce": "^2.6.3"
-  }
+	"name": "oh-2bitbits-vscode-theme",
+	"displayName": "Oh! 2bitbit's VSCode Theme",
+	"version": "1.1.4",
+	"publisher": "2bitbit",
+	"author": "2bitbit",
+	"license": "ISC",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/2bitbit/oh-2bitbits-vscode-theme.git"
+	},
+	"homepage": "https://github.com/2bitbit/oh-2bitbits-vscode-theme#readme",
+	"bugs": {
+		"url": "https://github.com/2bitbit/oh-2bitbits-vscode-theme/issues"
+	},
+	"keywords": [
+		"one-dark",
+		"one-dark-vivid",
+		"one-dark-italic",
+		"vscode-theme",
+		"vscode"
+	],
+	"scripts": {
+		"format": "biome format --write .",
+		"lint": "biome check .",
+		"test": "bun test",
+		"theme": "bun ./generator/index.ts",
+		"theme:watch": "bun --watch ./generator/index.ts",
+		"ts": "tsc",
+		"vscode:prepublish": "bun run theme"
+	},
+	"engines": {
+		"vscode": "^1.120.0"
+	},
+	"categories": [
+		"Themes"
+	],
+	"icon": "static/icon.png",
+	"galleryBanner": {
+		"color": "#2d323b",
+		"theme": "dark"
+	},
+	"contributes": {
+		"themes": [
+			{
+				"label": "2bitbit One Dark Vivid",
+				"uiTheme": "vs-dark",
+				"path": "./themes/one-dark-vivid.json"
+			}
+		]
+	},
+	"capabilities": {
+		"untrustedWorkspaces": {
+			"supported": true
+		},
+		"virtualWorkspaces": true
+	},
+	"devDependencies": {
+		"@biomejs/biome": "latest",
+		"@types/bun": "latest",
+		"@types/vscode": "^1.63.1",
+		"esbuild": "^0.14.11",
+		"semantic-release": "^18.0.1",
+		"semantic-release-vsce": "^3.5.0",
+		"typescript": "latest",
+		"vsce": "^2.6.3"
+	}
 }

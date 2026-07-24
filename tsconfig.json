@@ -1,14 +1,14 @@
 {
-  "compilerOptions": {
-    "forceConsistentCasingInFileNames": true,
-    "module": "commonjs",
-    "preserveWatchOutput": true,
-    "sourceMap": true,
-    "strict": true,
-    "target": "es6",
-    "types": ["node"]
-  },
-  "include": [
-    "generator"
-  ]
+	"compilerOptions": {
+		"forceConsistentCasingInFileNames": true,
+		"module": "ESNext",
+		"moduleResolution": "bundler",
+		"noEmit": true,
+		"preserveWatchOutput": true,
+		"sourceMap": true,
+		"strict": true,
+		"target": "ESNext",
+		"types": ["bun"]
+	},
+	"include": ["generator"]
 }
