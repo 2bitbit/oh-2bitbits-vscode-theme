@@ -11,19 +11,6 @@ export interface Colors {
 	whiskey: string;
 }
 
-export const standardColors: Colors = {
-	chalky: "#e5c07b",
-	coral: "#e06c75",
-	cyan: "#56b6c2",
-	error: "#f44747",
-	ivory: "#abb2bf",
-	malibu: "#61afef",
-	sage: "#98c379",
-	stone: "#5c6370",
-	violet: "#c678dd",
-	whiskey: "#d19a66",
-};
-
 export const vividColors: Colors = {
 	chalky: "#e5c07b",
 	coral: "#ef596f",

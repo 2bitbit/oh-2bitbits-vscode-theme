@@ -51,7 +51,7 @@ export const editorTokens = {
 	"editor.foreground": theme.ivory,
 	"editor.lineHighlightBackground": "#333946",
 	// 鼠标拖选背景颜色
-	"editor.selectionBackground": "#006600",
+	"editor.selectionBackground": "#ff00aa55",
 	"editor.selectionHighlightBackground": "#ffffff10",
 	"editor.selectionHighlightBorder": "#ddd",
 	// 光标当前词的背景透明
@@ -152,8 +152,4 @@ export const editorTokens = {
 	"titleBar.border": colors.border,
 	"titleBar.inactiveBackground": colors.darkBackground,
 	"titleBar.inactiveForeground": "#6b717d",
-	// 搜索结果边框颜色
-	"terminal.findMatchBorder": "#00ff0060",
-	// 搜索结果背景颜色
-	"terminal.findMatchHighlightBackground": "#6e5c0e78",
 };
