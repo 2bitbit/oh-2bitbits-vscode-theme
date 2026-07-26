@@ -8,5 +8,6 @@
 		"README.md": true,
 		"themes/": true
 	},
+	"git.repositoryScanIgnoredFolders": ["my-examples"],
 	"hide-files.files": []
 }
