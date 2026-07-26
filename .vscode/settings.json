@@ -6,8 +6,7 @@
 		"LICENSE": true,
 		"static": true,
 		"README.md": true,
-		"themes/": true,
-		".vscode/": true
+		"themes/": true
 	},
 	"hide-files.files": []
 }

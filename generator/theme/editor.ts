@@ -69,8 +69,12 @@ export const editorTokens = {
 	"editorGroup.border": colors.border,
 	"editorGroupHeader.tabsBackground": colors.darkBackground,
 	"editorHoverWidget.background": colors.darkBackground,
-	"editorHoverWidget.border": colors.border,
 	"editorHoverWidget.highlightForeground": theme.sage,
+	// =================    悬浮窗 (Hover Widget)  ==========================
+	"editorHoverWidget.border": "#e992ffed",
+	"textCodeBlock.background": "#ffffff1a",
+	"editorHoverWidget.statusBarBackground": "#ffffff1a",
+	// ======================================================================
 	"editorIndentGuide.activeBackground": "#c8c8c859",
 	"editorIndentGuide.background": "#3b4048",
 	"editorInlayHint.foreground": "#A0A0A0F0",
@@ -142,7 +146,6 @@ export const editorTokens = {
 	"terminal.foreground": "#c8c8c8",
 	"textBlockQuote.background": colors.darkBackground,
 	"textBlockQuote.border": colors.activeBorder,
-	"textCodeBlock.background": colors.darkBackground,
 	"textPreformat.background": "#ffffff1a",
 	"textPreformat.foreground": theme.chalky,
 	"textLink.activeForeground": theme.malibu,
