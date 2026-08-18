@@ -37,7 +37,7 @@ export const editorTokens = {
 	"button.background": "#0952a1e2",
 	"button.secondaryBackground": "#404754",
 	"debugToolBar.background": colors.darkBackground,
-	"diffEditor.insertedTextBackground": "#33ff002e",
+	"diffEditor.insertedTextBackground": "#37fd0560", //7fff0060 // 37fd0560
 	"diffEditor.removedTextBackground": "#73000a",
 	"dropdown.background": colors.darkBackground,
 	"dropdown.border": colors.darkBackground,
@@ -51,7 +51,7 @@ export const editorTokens = {
 	"editor.foreground": theme.ivory,
 	"editor.lineHighlightBackground": "#333946",
 	// 鼠标拖选背景颜色
-	"editor.selectionBackground": "#ff00aa55",
+	"editor.selectionBackground": "#670045",
 	"editor.selectionHighlightBackground": "#ffffff10",
 	"editor.selectionHighlightBorder": "#ddd",
 	// 光标当前词的背景透明

@@ -2,6 +2,8 @@ import asyncio
 import httpx
 from typing import List, Dict, Any
 
+
+# 测试注释的颜色噢！
 async def fetch_hosted_zones(client: httpx.AsyncClient) -> List[Dict[str, Any]]:
     # 模拟获取 DNS 区域列表的 API 调用
     response = await client.get('https://api.example.com/v1/hosted-zones')
