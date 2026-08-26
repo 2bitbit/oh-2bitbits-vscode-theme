@@ -37,8 +37,8 @@ export const editorTokens = {
 	"button.background": "#0952a1e2",
 	"button.secondaryBackground": "#404754",
 	"debugToolBar.background": colors.darkBackground,
-	"diffEditor.insertedTextBackground": "#37fd0560", //7fff0060 // 37fd0560
-	"diffEditor.removedTextBackground": "#73000a",
+	"diffEditor.insertedTextBackground": "#092e0080",
+	"diffEditor.removedTextBackground": "#6f0009",
 	"dropdown.background": colors.darkBackground,
 	"dropdown.border": colors.darkBackground,
 	"editor.background": colors.background,

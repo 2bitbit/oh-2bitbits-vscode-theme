@@ -13,14 +13,17 @@ module ModuleValidator {
 		private myValue: String;
 
 		/**
-		 * Constructor for <code>HasValidator</code> class
-		 * @param value for <i>validation</i>
-		 */
+		 * asdfasd
+		 * aaaaaaaa
+		 *  for <code>HasValidator</code> class
+		 * @param valueaaa for <i>validation</i>
+		*/
 		constructor(valueParameter: String) {
 			this.myValue = valueParameter;
-			HasValidator.validatedValue.push(value);
+			// b
+			const c=1
 		}
-
+		
 		public validateValue(): Boolean {
 			var resultValue: Boolean = checkChars(this.myValue);
 			return resultValue;
